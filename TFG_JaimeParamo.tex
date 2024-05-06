@@ -1,0 +1,262 @@
+% Plantilla TFG desarrollada por Víctor Gayoso Martínez
+% U-tad, 2023
+
+\documentclass[oneside,a4paper,12pt]{book} 
+
+\usepackage[spanish, es-nodecimaldot]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{amsmath,amsfonts} % Para poder usar \mathbb
+\usepackage{makeidx}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{acronym}
+\usepackage{hyphenat}
+\usepackage{a4wide}
+\usepackage[normalsize]{subfigure}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage[Lenny]{fncychap}
+\usepackage{listings} % para poder hacer uso de "listings" propios (p.ej. códigos)
+\usepackage{eurosym} % para poder usar el símbolo del euro con \euro {xx}
+
+% *** DATE ***
+\usepackage{datetime2} 
+\newcommand{\fechaEntrega}{\DTMsetstyle{spanish}\DTMDate{2024-06-10}}
+
+% *** TABLES *** 
+\usepackage{booktabs}
+\usepackage{colortbl}
+
+% *** HYPERLINKS ***
+\usepackage{hyperref}
+\hypersetup{
+	linkcolor=blueSelf, 
+	colorlinks=true, 
+	urlcolor=blueSelf,
+	citecolor=blueSelf
+}
+
+% *** COLOR ***
+\usepackage{xcolor}
+\definecolor{blueSelf}{RGB}{0,0,255}
+
+\usepackage{times}
+
+\usepackage{subfigure}
+\usepackage[subfigure]{tocloft}
+
+\usepackage{enumitem}
+
+
+% Para las referencias (es necesario utilizar biber)
+\usepackage{csquotes}
+\usepackage[style=apa,backend=biber]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\addbibresource{Bibliografia/biblio.bib} % Fichero donde se incluyen las referencias
+
+% Para que se rellene con puntos el índice general
+\renewcommand\cftchapdotsep{\cftdotsep}
+\renewcommand\cftchapleader{\cftdotfill{\cftchapdotsep}}
+
+% Para que el índice no sea clickable
+\makeatletter
+\let\Hy@linktoc\Hy@linktoc@none
+\makeatother
+
+% Para que no divida las palabras
+\pretolerance=10000
+
+\newcommand{\bigrule}{\titlerule[0.5mm]} \titleformat{\chapter}[display] 
+{\bfseries\Huge} 
+{
+\filright 
+\Large\chaptertitlename\ 
+\Large 
+\Huge \Large\thechapter} 
+{0mm}
+{\filright}
+[\vspace{0.5mm}
+] 
+\geometry{a4paper, left=2.25cm, right=2.0cm, top=3cm, bottom=2cm, headsep=1.5cm}
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{plain}{} % Para que se muestre la cabecera y el número de página en la primera página de un capítulo
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase\leftmark}
+\fancyfoot[C]{\nouppercase\thepage}
+
+\addto\captionsspanish{\def\listtablename{\uppercase{\'{I}}\lowercase{ndice de tablas}}}
+
+% Especifica las reglas de separación que consideres. Algunos ejemplos:
+\hyphenation{fuer-tes}
+\hyphenation{mul-ti-ca-pa}
+\hyphenation{res-pues-ta}
+\hyphenation{di-fe-ren-tes}
+\hyphenation{de-sa-rro-lla-dos}
+\hyphenation{re-pre-sen-tan-do}
+
+% Opciones de distancias con las enumeraciones
+\setlist[itemize,1]{leftmargin=0.65cm,labelindent=0.0cm,labelsep=0.2cm}
+
+\setlist[enumerate,1]{leftmargin=0.65cm,labelindent=0.0cm,labelsep=0.2cm}
+
+\renewcommand\labelenumi{\theenumi)}
+
+\usepackage{lipsum}
+
+%\usepackage{indentfirst}        % Sangrado de parrafos al estilo europeo
+
+% Establece la profundidad del índice y la numeración de las páginas
+\setcounter{secnumdepth}{2} \setcounter{tocdepth}{1}
+
+\usepackage{longtable} % Para tablas muy largas
+\usepackage{multirow} % Para agrupar varias filas en las tablas
+
+\usepackage{wasysym} % Para \RHD en los bullets de segundo nivel
+
+% Para la distancia entre párrafos
+\setlength\parskip{0.4em plus 0.1em minus 0.1em}
+\setlength\parindent{0pt}
+
+\renewcommand\labelitemi{\raisebox{0.35ex}{\tiny$\bullet$}}
+\renewcommand{\labelitemii}{$\RHD$}
+
+
+
+% Para cambiar el espaciado entre el número de sección y el título
+\makeatletter 
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\hspace{1ex}}
+
+\makeatother
+\begin{document}
+
+% Si se pone antes de \begin{document} no funciona
+\renewcommand{\tablename}{\bfseries Tabla} 
+\renewcommand{\figurename}{\bfseries Figura}
+
+
+\baselineskip 1.35\baselineskip
+
+\frontmatter
+
+
+% PORTADA
+\input{Secciones/portada}
+
+\mainmatter
+
+\pagenumbering{arabic}
+
+
+% AGRADECIMIENTOS
+\newpage {\pagestyle{empty}}
+\markboth{Agradecimientos}{Agradecimientos}
+\chapter*{Agradecimientos}
+\vspace{2cm}
+\input{Secciones/agradecimientos}
+
+
+% ÍNDICE DE CONTENIDOS
+\newpage{\pagestyle{empty}}
+\setcounter{page}{1}
+\tableofcontents
+
+
+% ÍNDICE DE FIGURAS
+\newpage{\pagestyle{empty}}
+\addcontentsline{toc}{chapter}{\numberline{}Índice de figuras}
+\listoffigures
+
+
+% ÍNDICE DE TABLAS
+\newpage{\pagestyle{empty}}
+\addcontentsline{toc}{chapter}{\numberline{}Índice de tablas}
+\listoftables
+
+
+% ABSTRACT
+\newpage{\pagestyle{empty}}
+\markboth{Abstract}{Abstract}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{\numberline{}Abstract}
+\input{Secciones/abstract}
+
+
+% GLOSARIO
+\newpage{\pagestyle{empty}}
+\markboth{Glosario}{Glosario}
+\chapter*{Glosario}
+\addcontentsline{toc}{chapter}{\numberline{}Glosario}
+\input{Secciones/glosario}
+
+
+% NOTACIÓN
+\newpage{\pagestyle{empty}}
+\markboth{Notación}{Notación}
+\chapter*{Notaci\'on}
+\addcontentsline{toc}{chapter}{\numberline{}Notación}
+\input{Secciones/notacion}
+
+
+% CAPÍTULO 1 - INTRODUCCIÓN
+\newpage{\pagestyle{empty}}
+\chapter{Introducción}  
+\input{Secciones/introduccion}
+
+
+% CAPÍTULO 2 - ESTADO DE LA CUESTIÓN
+\chapter{Estado de la cuestión}  
+%\addcontentsline{toc}{chapter}{\numberline{}Estado de la cuestión}    
+\input{Secciones/estado}
+
+
+% CAPÍTULO 3 - ASPECTOS METODOLÓGICOS
+\chapter{Aspectos metodológicos}  
+%\addcontentsline{toc}{chapter}{\numberline{}Aspectos metodológicos}
+\input{Secciones/aspectos}
+
+
+% CAPÍTULO 4 - DESARROLLO DEL TRABAJO
+\chapter{Desarrollo del trabajo}  
+%\addcontentsline{toc}{chapter}{\numberline{}Desarrollo del trabajo}
+\input{Secciones/desarrollo}
+
+
+% CAPÍTULO 5 - CONCLUSIONES
+\chapter{Conclusiones}  
+%\addcontentsline{toc}{chapter}{\numberline{}Conclusiones}
+\input{Secciones/conclusiones}
+
+
+%\clearpage
+%\thispagestyle{empty}
+%\printindex \nocite{*}
+%\appendix
+
+
+% REFERENCIAS
+\newpage{\pagestyle{empty}}
+\addcontentsline{toc}{chapter}{\numberline{}Referencias}
+%https://github.com/SantiPlanet/apalike
+%\bibliographystyle{apalike-es} 
+%\bibliography{biblio}
+\printbibliography
+
+
+% ANEXO
+\newpage{\pagestyle{empty}}
+\markboth{Anexo}{Anexo}
+\chapter*{Anexo}  
+\addcontentsline{toc}{chapter}{\numberline{}Anexo}    
+\input{Secciones/anexo}
+
+
+
+\end{document}

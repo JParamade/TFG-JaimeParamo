@@ -1,0 +1,57 @@
+A continuación se muestran algunos elementos básicos en Latex.
+
+\section*{Figuras}
+
+\vspace{0.3cm}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.5]{./Figuras/LogoUtad.png}
+	\caption{Ejemplo de figura con imagen en formato PNG.}
+	\label{fig:01}
+\end{figure}
+
+
+\section*{Tablas}
+
+\begin{table}[!htbp]
+	\begin{center}
+		\begin{tabular}{| l | c | r |}
+			\hline
+			Clase & Aula & Cuatrimestre \\ 
+			\hline
+			\hline
+			Cálculo & MD203 & Q1 \\
+			\hline
+			Análisis Matemático I & BE011 & Q2 \\
+			\hline
+			Álgebra & BE012 & Q1 \\ 
+			\hline
+		\end{tabular}
+		\caption{Ejemplo de tabla}
+		\label{tab:fruta}
+	\end{center}
+\end{table} 
+
+\section*{Listas}
+
+Lista numerada:
+\begin{enumerate}
+\item Primer elemento.
+\item Segundo elemento.
+\end{enumerate}
+
+Lista sin numerar:
+\begin{itemize}%[leftmargin=2mm,labelindent=12.5mm,labelsep=6.3mm]
+	\item Primer elemento.
+	\item Segundo elemento.
+\end{itemize}
+
+\section*{Fórmulas matemáticas}
+
+Se pueden utilizar expresiones como $\sen(x)$, $y=\log(x)$, $\arctan(x)$ dentro de las frases, o crear fórmulas en párrafo separado:
+
+\[
+\int_{a}^{b} f(x) \, dx
+\]
+
+Es importante darse cuenta de la diferencia entre $\sum_{i=1}^{n} (2+i)^3$ y $\displaystyle  \sum_{i=1}^{n} (2+i)^3$.
