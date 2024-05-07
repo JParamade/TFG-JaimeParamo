@@ -51,7 +51,6 @@
 
 \usepackage{enumitem}
 
-
 % Para las referencias (es necesario utilizar biber)
 \usepackage{csquotes}
 \usepackage[style=apa,backend=biber]{biblatex}
@@ -128,8 +127,6 @@
 \renewcommand\labelitemi{\raisebox{0.35ex}{\tiny$\bullet$}}
 \renewcommand{\labelitemii}{$\RHD$}
 
-
-
 % Para cambiar el espaciado entre el número de sección y el título
 \makeatletter 
 \renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\hspace{1ex}}
@@ -141,11 +138,9 @@
 \renewcommand{\tablename}{\bfseries Tabla} 
 \renewcommand{\figurename}{\bfseries Figura}
 
-
 \baselineskip 1.35\baselineskip
 
 \frontmatter
-
 
 % PORTADA
 \input{Secciones/portada}
@@ -154,7 +149,6 @@
 
 \pagenumbering{arabic}
 
-
 % AGRADECIMIENTOS
 \newpage {\pagestyle{empty}}
 \markboth{Agradecimientos}{Agradecimientos}
@@ -162,24 +156,20 @@
 \vspace{2cm}
 \input{Secciones/agradecimientos}
 
-
 % ÍNDICE DE CONTENIDOS
 \newpage{\pagestyle{empty}}
 \setcounter{page}{1}
 \tableofcontents
-
 
 % ÍNDICE DE FIGURAS
 \newpage{\pagestyle{empty}}
 \addcontentsline{toc}{chapter}{\numberline{}Índice de figuras}
 \listoffigures
 
-
 % ÍNDICE DE TABLAS
 \newpage{\pagestyle{empty}}
 \addcontentsline{toc}{chapter}{\numberline{}Índice de tablas}
 \listoftables
-
 
 % ABSTRACT
 \newpage{\pagestyle{empty}}
@@ -188,14 +178,12 @@
 \addcontentsline{toc}{chapter}{\numberline{}Abstract}
 \input{Secciones/abstract}
 
-
 % GLOSARIO
 \newpage{\pagestyle{empty}}
 \markboth{Glosario}{Glosario}
 \chapter*{Glosario}
 \addcontentsline{toc}{chapter}{\numberline{}Glosario}
 \input{Secciones/glosario}
-
 
 % NOTACIÓN
 \newpage{\pagestyle{empty}}
@@ -204,42 +192,35 @@
 \addcontentsline{toc}{chapter}{\numberline{}Notación}
 \input{Secciones/notacion}
 
-
 % CAPÍTULO 1 - INTRODUCCIÓN
 \newpage{\pagestyle{empty}}
 \chapter{Introducción}  
 \input{Secciones/introduccion}
-
 
 % CAPÍTULO 2 - ESTADO DE LA CUESTIÓN
 \chapter{Estado de la cuestión}  
 %\addcontentsline{toc}{chapter}{\numberline{}Estado de la cuestión}    
 \input{Secciones/estado}
 
-
 % CAPÍTULO 3 - ASPECTOS METODOLÓGICOS
 \chapter{Aspectos metodológicos}  
 %\addcontentsline{toc}{chapter}{\numberline{}Aspectos metodológicos}
 \input{Secciones/aspectos}
-
 
 % CAPÍTULO 4 - DESARROLLO DEL TRABAJO
 \chapter{Desarrollo del trabajo}  
 %\addcontentsline{toc}{chapter}{\numberline{}Desarrollo del trabajo}
 \input{Secciones/desarrollo}
 
-
 % CAPÍTULO 5 - CONCLUSIONES
 \chapter{Conclusiones}  
 %\addcontentsline{toc}{chapter}{\numberline{}Conclusiones}
 \input{Secciones/conclusiones}
 
-
 %\clearpage
 %\thispagestyle{empty}
 %\printindex \nocite{*}
 %\appendix
-
 
 % REFERENCIAS
 \newpage{\pagestyle{empty}}
@@ -249,14 +230,11 @@
 %\bibliography{biblio}
 \printbibliography
 
-
 % ANEXO
 \newpage{\pagestyle{empty}}
 \markboth{Anexo}{Anexo}
 \chapter*{Anexo}  
 \addcontentsline{toc}{chapter}{\numberline{}Anexo}    
 \input{Secciones/anexo}
-
-
 
 \end{document}
