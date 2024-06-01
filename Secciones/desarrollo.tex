@@ -17,7 +17,7 @@ Estas actividades constituyen la base sobre la que se han construido para las di
 \begin{itemize}
 	\item Musicoterapia y narrativa audiovisual.
 	\item Musicoterapia y arte digital.
-	\item Composición interactiva y musicoterapia.
+	\item Musicoterapia y composición interactiva.
 	\item Musicoterapia y diseño de videojuegos (serious games).
 	\item UX/UI interacción y branding.
 \end{itemize}
@@ -45,7 +45,7 @@ La historia principal debe unir todas las actividades de forma natural sin perde
 La ambientación de esta historia está fuertemente vinculada con la naturaleza, que se asocia con la relajación y vitalidad. Así, los elementos estéticos deben ser coherentes con este tema. Considerando que ARTEMIS se centra en la ansiedad infantil, los elementos estéticos se diseñan para adecuarse a este contexto. Esta estética, repleta de colores vivos y personajes con rasgos de la animación tradicional, busca establecer una conexión con su público objetivo. Como no podemos determinar el género del paciente que utilizará la aplicación, decidimos desde el principio que el personaje debía ser andrógino. En la \autoref{fig:MainCharacterConcept}, observamos que se intentó alcanzar este objetivo desde las primeras propuestas estéticas. La versión final del personaje mantiene la androginia, combinando rasgos humanos con elementos naturales. Se puede comparar la versión inicial con la final en la \autoref{fig:MainCharacter}.
 
 \begin{center}
-	\textbf{Fuente:} Realizado por Sergio Calvo (miembro ARTEMIS).
+	\textbf{Fuente:} Realizado por Sergio Calvo, miembro ARTEMIS.
 	\vspace{-18pt}
 \end{center}
 
@@ -57,7 +57,7 @@ La ambientación de esta historia está fuertemente vinculada con la naturaleza,
 \end{figure}
 
 \begin{center}
-	\textbf{Fuente:} Realizado por Isabel Xiaowei de San Sebastián (miembro ARTEMIS).
+	\textbf{Fuente:} Realizado por Isabel Xiaowei de San Sebastián, miembro ARTEMIS.
 	\vspace{-18pt}
 \end{center}
 
@@ -73,13 +73,67 @@ La ambientación de esta historia está fuertemente vinculada con la naturaleza,
 Las ninfas, musas y gracias tienen una fuerte relación con la música y pueden ser los personajes identificados con instrumentos que el protagonista encuentra en su aventura. Por esta razón, los personajes secundarios que el protagonista encuentra a lo largo de la narrativa portan instrumentos (como se puede observar en la \ref{fig:InstrumentCharacters}), representando físicamente a estos seres.
 
 \begin{center}
-	\textbf{Fuente:} Realizado por Isabel Xiaowei de San Sebastián (miembro ARTEMIS).
+	\textbf{Fuente:} Realizado por Isabel Xiaowei de San Sebastián, miembro ARTEMIS.
 	\vspace{-18pt}
 \end{center}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.3\linewidth]{Figuras/Desarrollo/InstrumentCharacters}
-	\caption{Propuesta inicial de personaje principal.}
+	\caption{Propuesta de concepto de personajes con instrumentos.}
 	\label{fig:InstrumentCharacters}
 \end{figure}
+
+Antes de concluir esta línea de investigación, es relevante describir el formato que fundamenta esta historia y cómo se lleva a cabo la interacción del paciente bajo la guía del terapeuta. La historia se visualiza a través de un libro ilustrado interactivo. De este modo, el terapeuta puede controlar el ritmo de la historia y, si es necesario, retroceder. Para avanzar, se debe pulsar manualmente el botón de pasar página, permitiendo al terapeuta determinar cuánto tiempo se necesita en cada página, en caso de tener que explicar algún detalle.
+La ansiedad tiende a inquietar a quien la padece. Por ello, un sistema que permite adaptar el ritmo de la narrativa a cada situación, permite al terapeuta elegir el enfoque más beneficioso para el paciente en cuestión.
+
+\begin{center}
+	\textbf{Fuente:} \citeauthor{LORIRI:2018} (\citeyear{LORIRI:2018}).
+	\vspace{-18pt}
+\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{Figuras/Desarrollo/ImagenReferenciaLibro.jpg}
+	\caption{Imagen de referencia de libro interactivo.}
+	\label{fig:LoriRiBook}
+\end{figure}
+
+\begin{center}
+	\textbf{Fuente:} Realizado por Isabel Xiaowei de San Sebastián, miembro ARTEMIS.
+	\vspace{-18pt}
+\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Figuras/Desarrollo/IlustracionLibro.png}
+	\caption{Ilustración de ejemplo del libro ilustrado interactivo.}
+	\label{fig:BookIllustration}
+\end{figure}
+
+La narrativa es un elemento fundamental para la identificación del paciente con la aplicación. Esta aumenta la eficacia de la terapia en función del grado de inmersión que la tecnología pueda proporcionar en las sesiones de musicoterapia.
+
+\section{Musicoterapia y arte digital}
+
+La línea de investigación en arte digital propone una pieza de arte digital interactiva. Esta pieza, mediante experiencias visuales y música, puede ayudar en la gestión emocional y facilitar la transición de una emoción a otra a través de la interacción del usuario. Los datos de interacción se pueden recoger a través de la información proporcionada por periféricos comunes como una tableta y sus sensores (cámara o pantalla táctil). El objetivo de este recurso es ayudar al paciente a concentrarse y relajarse, enseñándole cómo respirar visualmente en situaciones de ansiedad. La interacción con esta herramienta se realiza mediante pulsaciones táctiles, ya sean cortas o prolongadas, o movimientos de la mano frente a la cámara. Se espera que estas acciones sean guiadas por el terapeuta para alcanzar su objetivo. De esta manera, al no usar un micrófono que puede generar varios problemas dependiendo del tipo de paciente que recibe la terapia\footnote{Usar un micrófono como sistema principal de entrada puede causar problemas en ciertos casos aislados. Las voces más graves producen ondas de sonido que son más difíciles de capturar, por lo que no sería correcto limitar las terapias a personas con voces más reconocibles.}, se evitan complicaciones. En términos de salida de la experiencia, la parte visual se mostrará en la pantalla y la parte musical se emitirá a través de altavoces o auriculares. Las propuestas de visualización para esta pieza se pueden dividir en dos categorías: visual y musical.
+
+\begin{itemize}
+	\item \textbf{Apartado visual:} se genera un mar de partículas que oculta un paisaje, siguiendo la línea estética del proyecto. Este paisaje se revela mediante la animación de las partículas, las cuales se ven afectadas por el contacto del dedo del paciente al deslizarse por la pantalla. Este movimiento depende de la longitud de la exhalación.
+	\item \textbf{Apartado musical:} se reproduce una melodía relajante de fondo con sonidos que nos recuerdan a la naturaleza (el viento, la vegetación, los animales, etc). Por otro lado, al interactuar con la pieza, también se emite un sonido más fuerte de brisa, que emula la exhalación.
+\end{itemize}
+
+\begin{center}
+	\textbf{Fuente:} \citeauthor{VAMOSS:2023} (\citeyear{VAMOSS:2023}).
+	\vspace{-18pt}
+\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{Figuras/Desarrollo/MarParticulas.png}
+	\caption{Referencia principal de arte interactivo en relación con la propuesta de Clara Guoshi, miembro de ARTEMIS. En el enlace de la referencia bibliográfica, se puede probar la experiencia creada por Vamoss.}
+	\label{fig:SeaParticles}
+\end{figure}
+
+\section{Musicoterapia y composición interactiva}
+
+La composición interactiva se basa en la creación de música como una forma de expresión libre. Mediante la modificación en tiempo real de un tema musical o combinaciones musicales, se pueden generar variaciones melódicas y paisajes sonoros. A través de esta interacción, el paciente puede crear música sencilla.
