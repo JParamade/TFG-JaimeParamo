@@ -183,9 +183,24 @@ A nivel musical, la aplicación utiliza FMOD para sincronizar rítmicamente las 
 
 \subsection{Aplicación 2: Melodía floral}
 
-A diferencia de la aplicación anterior, esta tiene una complejidad musical mayor, requiriendo un entendimiento teórico previo para su uso. Sin embargo, los conceptos utilizados en la aplicación son bastante sencillos para que un niño sin experiencia musical pueda aprenderlos rápidamente, tras una breve explicación del terapeuta. Al mismo tiempo, son lo suficientemente profundos para que un niño con experiencia musical pueda desenvolverse cómodamente con sus conocimientos adquiridos previamente. La aplicación de melodía floral incluye un pentagrama interactivo que permite cambiar tanto la duración como la altura de las notas. Por ello, es necesario conocer la nomenclatura musical, aunque no necesariamente de las notas, pero sí de los tipos de duración que existen, como las redondas, blancas, negras, corcheas, etc.
+A diferencia de la aplicación anterior, esta tiene una complejidad musical mayor, requiriendo un entendimiento teórico previo para su uso. Sin embargo, los conceptos utilizados en la aplicación son bastante sencillos para que un niño sin experiencia musical pueda aprenderlos rápidamente, tras una breve explicación del terapeuta. Al mismo tiempo, son lo suficientemente profundos para que un niño con experiencia musical pueda desenvolverse cómodamente con sus conocimientos adquiridos previamente. La aplicación de melodía floral incluye un pentagrama interactivo que permite cambiar tanto la duración como la altura de las notas. Por ello, es necesario conocer la nomenclatura musical, aunque no necesariamente de las notas, pero sí de los tipos de duración que existen, como las redondas, blancas, negras, corcheas, o incluso, los silencios.
 
-En cada iteración de la aplicación, se carga una melodía de una biblioteca, que el terapeuta puede seleccionar según las necesidades del paciente. Una vez seleccionada, aparece un pentagrama clásico con las notas dispuestas de acuerdo con la melodía. La estética de la aplicación conserva un aspecto natural, y cada nota se representa con un tipo de flor. La flor cambiará dependiendo de la duración de la nota, con las notas negras representadas por flores más oscuras y las notas blancas por flores literalmente blancas. Los silencios se representan con una hoja otoñal caída. Una gran referencia para la aplicación es el editor de melodías de Animal Crossing: New Horizons (\cite{ACNH:2020}), que permite la creación musical a través de la colocación de notas y silencios, variando la altura de las mismas.
+\begin{center}
+	\textbf{Fuente:} Realizado por Isabel Xiaowei de San Sebastián, miembro ARTEMIS.
+	\vspace{-18pt}
+\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\subfigure{\includegraphics[width=0.45\textwidth]{./Figuras/Desarrollo/MelodiaFloralNotas1.png}\label{fig:FloralMelodyNotes1}}
+	\subfigure{\includegraphics[width=0.45\textwidth]{./Figuras/Desarrollo/MelodiaFloralNotas2.png}\label{fig:FloralMelodyNotes2}}
+	\caption{Representación visual de las figuras musicales en función de su duración.}
+	\label{fig:FloralMelodyNotes}
+\end{figure}
+
+En cada iteración de la aplicación, se carga una melodía de una biblioteca, que el terapeuta puede seleccionar según las necesidades del paciente. Una vez seleccionada, aparece un pentagrama clásico con las notas dispuestas de acuerdo con la melodía. La estética de la aplicación conserva un aspecto natural, y cada nota se representa con un tipo de flor. La flor cambiará dependiendo de la duración de la nota, con las notas negras representadas por flores más oscuras y las notas blancas por flores literalmente blancas. Los silencios se representan con una hoja otoñal caída. Una gran referencia para la aplicación es el editor de melodías de Animal Crossing: New Horizons (\cite{ACNH:2020}), que permite la creación musical a través de la colocación de notas y silencios, variando la altura de las mismas. 
+
+Este enfoque visual ofrece varios beneficios terapéuticos. La representación visual de las notas como flores y hojas ayuda a los pacientes a conectarse emocionalmente con la música, haciendo que la experiencia sea más significativa. Además, la visualización de las notas y silencios facilita la comprensión de la teoría musical, incluso para aquellos sin conocimientos previos. La capacidad de crear y modificar melodías permite a los pacientes expresarse de manera creativa, lo cual puede ser especialmente útil para la liberación emocional y la exploración de sentimientos.
 
 \begin{center}
 	\textbf{Fuente:} Realizado por Elisa Alonso, miembro ARTEMIS.
@@ -194,10 +209,12 @@ En cada iteración de la aplicación, se carga una melodía de una biblioteca, q
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{Figuras/Desarrollo/MelodiaFloralGame.png}
+	\includegraphics[width=0.8\linewidth]{Figuras/Desarrollo/MelodiaFloralGame.png}
 	\caption[Interfaz de la aplicación melodía floral.]{Interfaz de la aplicación de melodía floral, mostrando un ejemplo de notas a distintas alturas y con diferentes figuras.}
 	\label{fig:FloralMelodyGame}
 \end{figure}
+
+Como se puede observar en la \autoref{fig:FloralMelodyGame}
 
 
 
