@@ -166,3 +166,38 @@ Cada uno de estos géneros representa un paisaje específico, aludiendo a las cu
 	\caption{Pantallas del menú y del juego en la aplicación de paisaje sonoro.}
 	\label{fig:SonoricEnvironment}
 \end{figure}
+
+\begin{center}
+	\textbf{Fuente:} Realizado por Leticia Gómez, compositora ARTEMIS.
+	\vspace{-14pt}
+\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{Figuras/Desarrollo/PaisajeSonoroFMOD.png}
+	\caption[Interfaz de FMOD aplicación paisaje sonoro.]{Interfaz de FMOD con los contenidos del género pop-rock de la aplicación de paisaje sonoro.}
+	\label{fig:SonoricEnvironmentFMOD}
+\end{figure}
+
+A nivel musical, la aplicación utiliza FMOD para sincronizar rítmicamente las diversas pistas de audio y los parámetros para alternar entre ellas. Se puede observar en la \autoref{fig:SonoricEnvironmentFMOD}, cómo está configurado el middleware de audio para garantizar el correcto funcionamiento de la aplicación. Cada evento de FMOD engloba un género específico. Aquí se agrupan todas las pistas de audio por instrumentos, que se reproducen según los parámetros indicados a través de scripting dentro de Unity.
+
+\subsection{Aplicación 2: Melodía floral}
+
+A diferencia de la aplicación anterior, esta tiene una complejidad musical mayor, requiriendo un entendimiento teórico previo para su uso. Sin embargo, los conceptos utilizados en la aplicación son bastante sencillos para que un niño sin experiencia musical pueda aprenderlos rápidamente, tras una breve explicación del terapeuta. Al mismo tiempo, son lo suficientemente profundos para que un niño con experiencia musical pueda desenvolverse cómodamente con sus conocimientos adquiridos previamente. La aplicación de melodía floral incluye un pentagrama interactivo que permite cambiar tanto la duración como la altura de las notas. Por ello, es necesario conocer la nomenclatura musical, aunque no necesariamente de las notas, pero sí de los tipos de duración que existen, como las redondas, blancas, negras, corcheas, etc.
+
+En cada iteración de la aplicación, se carga una melodía de una biblioteca, que el terapeuta puede seleccionar según las necesidades del paciente. Una vez seleccionada, aparece un pentagrama clásico con las notas dispuestas de acuerdo con la melodía. La estética de la aplicación conserva un aspecto natural, y cada nota se representa con un tipo de flor. La flor cambiará dependiendo de la duración de la nota, con las notas negras representadas por flores más oscuras y las notas blancas por flores literalmente blancas. Los silencios se representan con una hoja otoñal caída. Una gran referencia para la aplicación es el editor de melodías de Animal Crossing: New Horizons (\cite{ACNH:2020}), que permite la creación musical a través de la colocación de notas y silencios, variando la altura de las mismas.
+
+\begin{center}
+	\textbf{Fuente:} Realizado por Elisa Alonso, miembro ARTEMIS.
+	\vspace{-18pt}
+\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Figuras/Desarrollo/MelodiaFloralGame.png}
+	\caption[Interfaz de la aplicación melodía floral.]{Interfaz de la aplicación de melodía floral, mostrando un ejemplo de notas a distintas alturas y con diferentes figuras.}
+	\label{fig:FloralMelodyGame}
+\end{figure}
+
+
+
