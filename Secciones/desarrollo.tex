@@ -280,21 +280,21 @@ La línea de investigación de experiencia e interfaz de usuario se enfoca en la
 
 La \autoref{fig:Branding} contiene toda la información esencial sobre la imagen de marca del proyecto ARTEMIS. Esta incluye los logotipos e iconos, junto con la tipografía que se ha utilizado a lo largo del proyecto. El icono, que representa una nota musical con forma de 'A' derivada del nombre del proyecto, simboliza el objetivo del proyecto: la transición suave y progresiva entre emociones.
 
-\section{Ritmo vegetal. Una experiencia rítmica para mejorar el bienestar emocional}
+\section{Ritmo vegetal: Una experiencia rítmica para mejorar el bienestar emocional}
 
 Esta sección es la más relevante del desarrollo de este TFG, ya que conforma todo el trabajo del autor y su tutor sobre el proyecto ARTEMIS. Discutiremos en detalle el proceso de desarrollo, enfocándonos en cada fase de la creación de la experiencia rítmica interactiva. El enfoque de este desarrollo, según la metodología descrita, se divide en varias fases comunes al desarrollo de videojuegos. Estas fases incluyen la preproducción y la producción. 
 
-\subsection{Preproducción: Diseño conceptual}
+\subsection{Preproducción: Prerrequisitos}
 
 El punto de partida de esta aplicación se ciñe a una serie de requisitos que fueron estipulados antes del comienzo del proyecto. El videojuego debía ser rítmico/musical para correlacionarse con la teoría y práctica de la musicoterapia, y ser compatible con este tipo de terapia. Además, tenía que ser modular para adaptarse a diferentes rangos de edades y emociones de estudio, si el proyecto escalaba en el futuro. También era importante que el jugador (paciente) no sólo interactuara, sino que también fuera creador, construyendo nuevos recursos a partir de los proporcionados por la experiencia. Por encima de todo, la aplicación debía alcanzar el objetivo principal del proyecto ARTEMIS: facilitar la transición de emociones con connotaciones negativas a emociones con connotaciones positivas. Se mencionan el término emociones con connotaciones dado que las emociones en sí mismas no son ni positivas ni negativas, aunque las connotaciones sí lo sean. En realidad, las emociones pueden ser potenciadoras o limitantes, y ambas son igual de importantes. Desde el principio, no se había decidido cuál sería la emoción a estudiar. Por lo tanto, se creó una tabla que comparaba las emociones limitantes con sus respectivas emociones potenciadoras, para facilitar la elección de esta.
 
 \begin{table}[h!]
 	\centering
-	\resizebox{0.5\textwidth}{!}{
-		\begin{tabular}{|c|c|}
+	\resizebox{0.55\textwidth}{!}{
+		\begin{tabular}{|c||c|}
 			\hline
 			\rowcolor[HTML]{FD6864} 
-			\textbf{EMOCIÓN LIMITANTE} & \cellcolor[HTML]{9AFF99}{\color[HTML]{000000} \textbf{EMOCIÓN POTENCIADORA}} \\ \hline
+			\textbf{EMOCIÓN LIMITANTE} & \cellcolor[HTML]{9AFF99}{\color[HTML]{000000} \textbf{EMOCIÓN POTENCIADORA}} \\ \hline \hline
 			Decepeción                 & Entusiasmo/Satisfacción                                                      \\ \hline
 			Frustración/Indignación    & Motivación/Pasión/Ilusión                                                    \\ \hline
 			Tristeza                   & Felicidad/Alegría                                                            \\ \hline
@@ -307,12 +307,110 @@ El punto de partida de esta aplicación se ciñe a una serie de requisitos que f
 			Preocupación               & Bienestar                                                                    \\ \hline
 		\end{tabular}
 	}
-		\caption{Comparación emociones limitantes contra respectivas potenciadoras.}
+		\caption{Comparación de emociones limitantes contra sus respectivas potenciadoras.}
 		\label{tab:Emotions}
 \end{table}
 
-Finalmente, decidimos que el objeto de estudio sería la ansiedad. Sin embargo, necesitábamos seleccionar un grupo social para esta primera iteración del proyecto. Al principio, consideramos que el grupo objetivo debería ser una población vulnerable. Los niños y ancianos parecían un buen punto de partida, pero notamos que, al ser un proyecto basado en tecnología interactiva digital, los niños tendrían una mayor facilidad de uso. Esto nos permitiría enfocarnos en el diseño de la experiencia terapéutica en lugar de adaptar la tecnología a un público específico, aunque no descartamos esta opción para el futuro.
+Finalmente, decidimos que el objeto de estudio sería la ansiedad. Sin embargo, necesitábamos seleccionar un grupo social para esta primera iteración del proyecto. Al principio, consideramos que el grupo objetivo debería ser una población vulnerable. Los niños y ancianos parecían un buen punto de partida, pero notamos que, al ser un proyecto basado en tecnología interactiva digital, los niños tendrían una mayor facilidad de uso. Esto nos permitiría enfocarnos en el diseño de la experiencia terapéutica en lugar de adaptar la tecnología a un público específico, aunque no descartamos esta opción para el futuro. 
+
+\subsection{Preproducción: Diseño conceptual}
+
+Una vez definidos los prerrequisitos, el siguiente paso es diseñar conceptualmente la experiencia interactiva. El primer desafío que abordamos fue cómo hacer que el jugador (paciente) no solo sea un espectador pasivo de la aplicación, sino que se convierta en un creador activo. El objetivo es que el jugador se involucre más allá de simplemente jugar, sino también crear de manera que influya en el gameplay\footnote{El término gameplay se refiere a la parte jugable de un videojuego. Describe las reglas de funcionamiento y el diseño del videojuego específico al que se hace referencia.}. Un ejemplo ideal para ilustrar esta idea es Drawn To Life (\cite{DTL:2007}), un videojuego en el que el jugador dibuja el personaje, como se puede observar en la \autoref{fig:DrawnToLife}, que luego utilizará en su aventura.
+
+\begin{center}
+	\textbf{Fuente:} \citeauthor{DTL:2020} (\citeyear{DTL:2020}).
+	\vspace{-16pt}
+\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figuras/Desarrollo/DrawnToLife.jpg}
+	\caption{Editor de personajes Drawn To Life.}
+	\label{fig:DrawnToLife}
+\end{figure}
+
+Para comenzar a conceptualizar un diseño de videojuego, primero recopilamos en una tabla una serie de referencias del género de los juegos de ritmo. Esta tabla nos proporcionó una visión del estado actual del mercado de videojuegos en este género e inspiró algunas ideas para nuestro propio desarrollo. La tabla es la siguiente:
+
+\begin{table}[htbp]
+	\centering
+	
+	\resizebox{\textwidth}{!}{
+	\begin{tabular}{|l|l|c|}
+		\hline
+		\rowcolor[rgb]{ .788,  .761,  .878} \multicolumn{1}{|c|}{\textbf{Nombre}} & \multicolumn{1}{c|}{\textbf{Jugabilidad}} & \multicolumn{1}{c|}{\textbf{Link}} \\
+		\hline
+		\textit{Arcaea} & Similar a Piano Tiles. Incrementa la profundidad añadiendo distintas alturas. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=ZcF9JQ44\_sw}} \\
+		\hline
+		\textit{Beat \& Shapes} & Se basa en esquivar obstáculos, aunque no necesariamente al ritmo de la música. Feedback visual al ritmo de la música. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=2VpqK2E8NRY}} \\
+		\hline
+		\textit{Beat Saber} & Formato VR. Se deben romper bloques al ritmo de la música. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=pa4vrynwkwY}} \\
+		\hline
+		\textit{Bullets Per Minute} & First Person Shooter en el que las acciones se deben realizar al ritmo de la música. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=cq-E6s91KyM}} \\
+		\hline
+		\textit{Crypt of the NecroDancer} & Acciones limitadas por casillas y al ritmo de la música. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=u\_avgU1u6yM}} \\
+		\hline
+		\textit{Cytus} & Estilo Osu!. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=k\_dibEIH4DE}} \\
+		\hline
+		\textit{Disaster Band} & Estilo Trombone Champ pero cooperativo. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=prU6dtBEpCI}} \\
+		\hline
+		\textit{Elite Beat Agents} & Estilo Osu!. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=FDfKdrdRbkA}} \\
+		\hline
+		\textit{Friday Night Funkin} & Estilo Piano Tiles. Caen flechas al ritmo de las canciones, teniendo apoyo visual con el movimiento de los personajes. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=xErhpjV8qNI}} \\
+		\hline
+		\textit{Fuser} & Simulador de DJ. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=Ego\_IsxQw1I}} \\
+		\hline
+		\textit{Geometry Dash} & Plataformas 2D con scroll lateral. Esquivar obstáculos (al ritmo de la música?). & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=k90y6PIzIaE}} \\
+		\hline
+		\textit{Guitar Hero} & Simulador de guitarra. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=YJgagY6j6ro}} \\
+		\hline
+		\textit{Hi-Fi Rush} & Aventura 3º persona. Acciones al ritmo de la música. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=\_GErIWYIhVc}} \\
+		\hline
+		\textit{Impossible Game} & Plataformas 2D con scroll lateral. Esquivar obstáculos (al ritmo de la música?). & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=iQPEbHQZm68}} \\
+		\hline
+		\textit{Lost in Harmony} & Esquivar obstáculos (no necesariamente al ritmo). Feedback visual acorde al ritmo. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=ZpumeaGwJvQ}} \\
+		\hline
+		\textit{Metal: Hellsinger} & FPS. Acciones al ritmo de la música. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=vzrFrhetMhA}} \\
+		\hline
+		\textit{Minna Rhythm} & Diferentes minijuegos rítmicos. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=2feG25a3VfQ}} \\
+		\hline
+		\textit{Osu!} & Circulos se van cerrado y se deben de dar en el punto correcto de la canción. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=oI6X1pDMNlg}} \\
+		\hline
+		\textit{PaRappa The Rapper} & Juego de rap músical. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=y3SI4Grases}} \\
+		\hline
+		\textit{Patapon} & 2D scroll lateral. Diferentes ritmos para diferentes acciones. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=Gvd21YW966A}} \\
+		\hline
+		\textit{Piano Tiles} & Piano Tiles. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=kVIWzN0DmTc}} \\
+		\hline
+		\textit{Pistol Whip} & FPS VR. Acciones al ritmo de la música. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=mA75FYv6Nzg}} \\
+		\hline
+		\textit{Sayonara Wild Hearts} & Movimiento 3D/2D en niveles musicales. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=F-RyxYcxSQ4}} \\
+		\hline
+		\textit{SingStar} & Simulador de canto. & \multicolumn{1}{l|}{\textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=dNIOuio4-uU}} \\
+		\hline
+		\textit{Soundfall} & Hack\&Slash. Acciones al ritmo de la música. & \textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=UhqempUAW2A} \\
+		\hline
+		\textit{Taiko no Tatsujin: Drum Session} & Juego de tambor rítmico. & \textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=f7Yimxud4UI} \\
+		\hline
+		\textit{Theatrhythm Final Bar Line} & Universo Final Fantasy. Diferentes minijuegos musicales. & \textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=3EktIGradBI} \\
+		\hline
+		\textit{TLOZ: Cadence of Hyrule} & Acciones limitadas por casillas y al ritmo de la música. & \textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=T2vSGCXkYac} \\
+		\hline
+		\textit{Trombone Champ} & Seguir melodía música, con indicaciones lineales (al estilo de un trombón). & \textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=l-w5phrKu7Q} \\
+		\hline
+		\textit{Voez} & Piano tiles avanzado donde se truecan las lineas de notas & \textcolor[rgb]{ .02,  .388,  .757}{https://www.youtube.com/watch?v=cInSMLRcvKo} \\
+		\hline
+	\end{tabular}%
+}
+\caption{Referencia}
+	\label{tab:RhythmReferences}%
+\end{table}%
 
 
+La gracia del puzle está en resolverlo, motivación intrínseca.
 
+RITMO Y EMOCIONES,
+CREACIÓN MUSICAL Y EMOCIONES,
+MUSICOTERAPIA Y ANSIEDAD,
+DISEÑO DE JUEGOS SERIOS
 
+APLICACIONES RELACIONADAS CON VIDEOJUEGOS PARA LA SALUD
