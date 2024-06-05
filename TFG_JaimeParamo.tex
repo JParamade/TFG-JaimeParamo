@@ -21,6 +21,24 @@
 \usepackage{titlesec}
 \usepackage[Lenny]{fncychap}
 \usepackage{listings} % para poder hacer uso de "listings" propios (p.ej. códigos)
+\lstdefinestyle{sharpc}{language=[Sharp]C, frame=lr, rulecolor=\color{blue!80!black}}
+\lstset{frame=tb,
+	style=sharpc,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
 \usepackage{eurosym} % para poder usar el símbolo del euro con \euro {xx}
 
 % *** DATE ***
@@ -133,6 +151,11 @@
 % Para cambiar el espaciado entre el número de sección y el título
 \makeatletter 
 \renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\hspace{1ex}}
+
+% *** CUSTOM COLORS ***
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
 
 % *** SANGRÍA PÁRRAFO ***
 \usepackage{indentfirst}
