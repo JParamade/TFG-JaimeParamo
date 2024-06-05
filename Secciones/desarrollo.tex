@@ -405,16 +405,31 @@ Para comenzar a conceptualizar un diseño de videojuego, primero recopilamos en 
 	\label{tab:RhythmReferences}
 \end{table}
 
-Después de analizar la situación actual de los videojuegos musicales, se propusieron dos conceptos de juego basados en los prerrequisitos, además de considerando las referencias anteriores. Ambas propuestas se centraban en la figura del paciente como creador, y no como únicamente jugador.
+Después de analizar la situación actual de los videojuegos musicales, se propusieron dos conceptos de juego basados en los prerrequisitos, además de considerando las referencias anteriores. Ambas propuestas se centraban en la figura del paciente como creador, y no como únicamente jugador. El ciclo de juego en ambas propuestas debe ser corto, ya que se centra en terapias que suelen durar entre 30 y 60 minutos, compartiendo tiempo con otras actividades que el terapeuta considere adecuadas.
 
 \begin{itemize}
 	\item \textbf{Propuesta Beat 'Em Up:} esta propuesta se inspira en el clásico género Beat 'Em Up, donde el jugador avanza a través de un nivel lineal (comúnmente en dos dimensiones) derrotando enemigos en combate cuerpo a cuerpo. El bucle de juego se divide en dos fases:
 	\begin{enumerate}
-		\item \textbf{Fase de creación:} Al igual que un pedal de bucle para guitarras, que reproduce en bucle distintas iteraciones de lo que se toca en el instrumento, el jugador crea los comportamientos de los NPCs a través de varias iteraciones. Estas iteraciones aumentan en duración hasta llegar a la versión final del personaje.
-		\item \textbf{Fase de juego:} 
+		\item \textbf{Fase de creación:} Al igual que un pedal de bucle para guitarras, que reproduce en bucle distintas iteraciones de lo que se toca en el instrumento, el jugador crea los comportamientos de los NPCs a través de varias iteraciones de jugabilidad. Estas iteraciones aumentan en duración hasta llegar a la versión final del personaje. El comportamiento de los NPCs se asemejaría a las sucesivas generaciones de una red neuronal, donde cada generación mejora a la anterior y optimiza su rendimiento en la tarea encomendada. La única diferencia radica en que, en las redes neuronales, el ajuste se realiza de manera aleatoria, basándose en una serie de parámetros establecidos por el usuario. Sin embargo, en nuestra propuesta, el control lo ejerce completamente el jugador. Cuando el jugador esté satisfecho con su creación, avanza a la siguiente fase con la versión del personaje que ha creado.
+		
+		\item \textbf{Fase de juego:} En esta fase, la jugabilidad se asemeja más a un Beat 'Em Up convencional, con la particularidad de que las acciones del jugador deben seguir el ritmo de la música. Patapon (\cite{PATAPON:2007}) es la principal referencia para entender esta jugabilidad rítmica.
 	\end{enumerate}
 	\item \textbf{Propuesta Lemmings:} 
 \end{itemize}
+
+\begin{center}
+	\textbf{Fuente:} \citeauthor{LEMMINGS:2024} (\citeyear{LEMMINGS:2024}).
+	\vspace{-18pt}
+\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\subfigure{\includegraphics[width=0.26\textwidth]{./Figuras/Desarrollo/LemmingsLogo.png}\label{fig:LemmingsLogo}}
+	\hfil
+	\subfigure{\includegraphics[width=0.45\textwidth]{./Figuras/Desarrollo/LemmingsGame.png}\label{fig:LemmingsGame}}
+	\caption{Referencia de jugabilidad de la propuesta Lemmings.}
+	\label{fig:Lemmings}
+\end{figure}
 
 La gracia del puzle está en resolverlo, motivación intrínseca.
 
