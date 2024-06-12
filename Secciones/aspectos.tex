@@ -28,9 +28,7 @@ Para un correcto cumplimiento de esta fase, utilizaremos una metodología ágil 
 
 \subsection{Mejora continua}
 
-Esta fase realmente no pertenece al desarrollo, sin embargo, y aunque se mencionará en profundidad en las conclusiones de este TFG, al ser un proyecto de investigación vivo, incluso tras la finalización de este trabajo, está en constante cambio. Está planteado
-
-\newpage
+Aunque esta fase no pertenece realmente al desarrollo y se discutirá en profundidad en las conclusiones de este TFG, es importante mencionar que, dado que es un proyecto de investigación en curso, está en constante cambio incluso después de finalizar este trabajo. Se ha propuesto que el proyecto sea continuado por futuras generaciones de miembros, para estudiar nuevas emociones que puedan ser tratadas con musicoterapia.
 
 \section{Tecnologías empleadas}
 
@@ -81,19 +79,7 @@ Visual Studio es un entorno de desarrollo integrado (IDE) y editor de código, c
 
 \subsection{FMOD}
 
-FMOD Studio es un middleware\footnote{Un middleware, en términos de informática, es un software que facilita la comunicación entre las distintas aplicaciones y el sistema operativo. Además, proporciona funcionalidades inteligentes que permiten una innovación más rápida y un desarrollo eficiente. En el desarrollo de videojuegos, el middleware es un software que facilita la implementación de funcionalidades específicas dentro del motor.} de audio para videojuegos. Fue desarrollado y lanzado por Fireflight Technologies en 1995. Este motor de música y efectos de sonido se asemeja a un DAW tradicional, como se puede observar en la \autoref{fig:FMODUI}. FMOD Studio pertenece a la misma familia que el middleware Audiokinetic Wwise. Ambos proveen herramientas para la sonorización de videojuegos que facilitan la implementación de audio. Sin embargo, se ha decidido utilizar FMOD Studio debido a la mayor familiaridad con este software.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.9\linewidth]{./Figuras/Aspectos/FMODStudio.jpg}
-	\caption{Interfaz de usuario de FMOD Studio.}
-	\label{fig:FMODUI}
-	\vspace{-30pt}
-\end{figure}
-
-\begin{center}
-	\textbf{Fuente:} \citeauthor{FMODSTUDIO:2024} (\citeyear{FMODSTUDIO:2024}).
-\end{center}
+FMOD Studio es un middleware\footnote{Un middleware, en términos de informática, es un software que facilita la comunicación entre las distintas aplicaciones y el sistema operativo. Además, proporciona funcionalidades inteligentes que permiten una innovación más rápida y un desarrollo eficiente. En el desarrollo de videojuegos, el middleware es un software que facilita la implementación de funcionalidades específicas dentro del motor.} de audio para videojuegos. Fue desarrollado y lanzado por Fireflight Technologies en 1995. Este motor de música y efectos de sonido se asemeja a un DAW tradicional. FMOD Studio pertenece a la misma familia que el middleware Audiokinetic Wwise. Ambos proveen herramientas para la sonorización de videojuegos que facilitan la implementación de audio. Sin embargo, se ha decidido utilizar FMOD Studio debido a la mayor familiaridad con este software.
 
 A diferencia del sistema de audio de Unity, que tiene funcionalidades limitadas, FMOD Studio permite gestionar con gran precisión las pistas de audio en eventos, incluso utilizando filtros de diversos tipos si fuera necesario. Desde FMOD Studio, se pueden añadir parámetros asociados a zonas de bucle, compases musicales o pistas, que luego pueden ser modificados desde los propios componentes de Unity o por programación de scripts en función de las necesidades del videojuego que se esté desarrollando.
 
