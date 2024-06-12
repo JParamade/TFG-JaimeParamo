@@ -1,8 +1,34 @@
-Justificación de las técnicas y tecnologías empleadas en el trabajo, especificando las razones por las que se han descartado otras igualmente aplicables.
+Para el desarrollo de la aplicación, utilizaremos una metodología similar a la empleada en el desarrollo de videojuegos tradicional. Por lo tanto, explicaremos las diferentes fases de este proceso, definiendo los objetivos a alcanzar en cada una de ellas.
 
 \section{Metodología}
 
-En este apartado se especificarán las fases del trabajo, así como la metodología o metodologías empleadas para desarrollar cada una de las fases. 
+El proyecto ARTEMIS tiene como objetivo desarrollar una aplicación que pueda ser utilizada como herramienta complementaria en sesiones de musicoterapia. El enfoque de la investigación reside en el desarrollo iterativo de videojuegos serios que se fundamenten en evaluaciones empíricas de su efectividad. Esto significa que se aplicará la metodología de desarrollo de videojuegos serios, la cual es muy similar al desarrollo de videojuegos convencionales. Describiremos las principales fases del desarrollo de la aplicación para llegar a una versión final.
+
+\subsection{Investigación inicial y revisión de literatura}
+
+El objetivo principal de esta fase es recopilar y analizar estudios previos sobre las líneas de investigación relevantes para el desarrollo de esta aplicación. Esta investigación finalizará en el análisis del uso de videojuegos serios en terapias para la ansiedad. Esta etapa es esencial para establecer una base teórica sólida y comprender el estado actual de la investigación en este campo. Además, permitirá identificar brechas en estas áreas donde la nueva investigación pueda aportar contribuciones.
+
+Para lograr esto, se lleva a cabo una revisión sistemática de la literatura que implica recopilar, evaluar y sintetizar información relevante en los campos específicos de la investigación. Esta literatura está conformada por bibliografía de bases de datos como Google Scholar, PubMed o Dialnet. Aunque esta fase se ha realizado antes del desarrollo, en el capítulo \ref{chapter:state}, es relevante incluirla en la metodología. Esto se debe a que es el paso inicial fundamental para fundamentar las decisiones que se van a tomar en las siguientes fases del desarrollo.
+
+\subsection{Conceptualización y diseño}
+
+El objetivo de esta fase es definir los elementos clave para el diseño y funcionalidad de la aplicación. Esto incluye la identificación de las mecánicas de juego que se utilizarán, y la creación de nuevas mecánicas si fuera necesario. Es importante en esta fase justificar las decisiones de diseño tomadas, manteniendo siempre la alineación con las bases terapéuticas de las investigaciones de la fase anterior. 
+
+Para diseñar las mecánicas del juego, es esencial considerar los elementos de diseño de videojuegos serios, los diferentes tipos de ansiedad junto con sus respectivos tratamientos, y las modalidades de musicoterapia. El autor de este trabajo aportará ideas sobre posibles mecánicas, las cuales se complementarán con sesiones de brainstorming entre los miembros del proyecto ARTEMIS y la tutora de este TFG. De esta forma, se conseguirá conceptualizar diversas mecánicas centradas en estos aspectos, que podrán ser desarrolladas una vez se cambie a la siguiente fase.
+
+\subsection{Desarrollo iterativo}
+
+El desarrollo iterativo es un enfoque importante en la creación de videojuegos. Permite mejorar el producto en desarrollo a través de ciclos repetidos de diseño, prueba y pulido. Este proceso es esencial para garantizar que el videojuego sea no solo funcional, sino también eficaz a nivel terapéutico. Es vital recoger feedback sobre los aspectos positivos y negativos de las distintas iteraciones para lograr un resultado final óptimo tras las necesarias revisiones.
+
+El objetivo de esta etapa será crear prototipos del videojuego en cuestión y perfeccionarlos continuamente hasta obtener un resultado que cumpla con los objetivos terapéuticos y ofrezca una experiencia de usuario adaptada al contexto. Este proceso se basa en recibir feedback de los miembros del equipo y las directivas, así como tener en cuenta la opinión de equipos externos de psicología y música.
+
+El prototipado será de gran importancia para conseguir un resultado mecánico atractiva y que funcione alrededor de los conceptos terapéuticos. Una vez se haya alcanzado un prototipo acorde a estos principios, se desarrollará una versión más pulida y con elementos de juego finales como arte y audio.
+
+Para un correcto cumplimiento de esta fase, utilizaremos una metodología ágil para iterar sobre el desarrollo. Scrum, como metodología, divide el desarrollo en sprints cortos y manejables, permitiendo ajustes continuos basados en el feedback rápido que proporcionan este tipo de sistemas. Además, al final de cada sprint, se pueden realizar retrospectivas para evaluar el progreso del proyecto y proponer mejoras estructurales para los próximos sprints.
+
+\subsection{Mejora continua}
+
+Esta fase realmente no pertenece al desarrollo, sin embargo, y aunque se mencionará en profundidad en las conclusiones de este TFG, al ser un proyecto de investigación vivo, incluso tras la finalización de este trabajo, está en constante cambio. Está planteado
 
 \newpage
 
@@ -31,17 +57,17 @@ Hemos seleccionado Unity para nuestro caso específico por diversas razones, dad
 
 El motor gráfico 2D de Unity ofrece diversas herramientas útiles para el desarrollo, como el Sprite Editor. Además, Unity tiene una sólida integración de físicas 2D que permite simular colisiones, gravedad y otros elementos físicos. Su interfaz es intuitiva y fácil de usar, como se muestra en la \autoref{fig:UnityUI}, facilitando la creación rápida de videojuegos.
 
-\begin{center}
-	\textbf{Fuente:} Captura realizada por el autor del TFG.
-	\vspace{-18pt}
-\end{center}
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{./Figuras/Aspectos/UnityUI.png}
 	\caption{Interfaz de usuario de la plantilla 2D de Unity.}
 	\label{fig:UnityUI}
+	\vspace{-30pt}
 \end{figure}
+
+\begin{center}
+	\textbf{Fuente:} Captura realizada por el autor del TFG.
+\end{center}
 
 La capacidad de arrastrar y soltar objetos en el editor de Unity simplifica significativamente el proceso de diseño, permitiendo a los desarrolladores centrarse en la creatividad y la jugabilidad en lugar de en aspectos técnicos complejos. Además, Unity cuenta con una comunidad amplia y activa que ofrece acceso a foros, tutoriales, cursos en línea y documentación extensa. Esta comunidad es un recurso invaluable para obtener soporte y encontrar soluciones a problemas comunes, aprender técnicas nuevas y compartir experiencias.
 
@@ -57,17 +83,17 @@ Visual Studio es un entorno de desarrollo integrado (IDE) y editor de código, c
 
 FMOD Studio es un middleware\footnote{Un middleware, en términos de informática, es un software que facilita la comunicación entre las distintas aplicaciones y el sistema operativo. Además, proporciona funcionalidades inteligentes que permiten una innovación más rápida y un desarrollo eficiente. En el desarrollo de videojuegos, el middleware es un software que facilita la implementación de funcionalidades específicas dentro del motor.} de audio para videojuegos. Fue desarrollado y lanzado por Fireflight Technologies en 1995. Este motor de música y efectos de sonido se asemeja a un DAW tradicional, como se puede observar en la \autoref{fig:FMODUI}. FMOD Studio pertenece a la misma familia que el middleware Audiokinetic Wwise. Ambos proveen herramientas para la sonorización de videojuegos que facilitan la implementación de audio. Sin embargo, se ha decidido utilizar FMOD Studio debido a la mayor familiaridad con este software.
 
-\begin{center}
-	\textbf{Fuente:} \citeauthor{FMODSTUDIO:2024} (\citeyear{FMODSTUDIO:2024}).
-	\vspace{-18pt}
-\end{center}
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./Figuras/Aspectos/FMODStudio.jpg}
 	\caption{Interfaz de usuario de FMOD Studio.}
 	\label{fig:FMODUI}
+	\vspace{-30pt}
 \end{figure}
+
+\begin{center}
+	\textbf{Fuente:} \citeauthor{FMODSTUDIO:2024} (\citeyear{FMODSTUDIO:2024}).
+\end{center}
 
 A diferencia del sistema de audio de Unity, que tiene funcionalidades limitadas, FMOD Studio permite gestionar con gran precisión las pistas de audio en eventos, incluso utilizando filtros de diversos tipos si fuera necesario. Desde FMOD Studio, se pueden añadir parámetros asociados a zonas de bucle, compases musicales o pistas, que luego pueden ser modificados desde los propios componentes de Unity o por programación de scripts en función de las necesidades del videojuego que se esté desarrollando.
 

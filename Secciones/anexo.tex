@@ -1,22 +1,113 @@
-A continuación se muestran algunos elementos básicos en Latex.
+\section{Sistema de cuadrícula}
 
-\section*{Tablas}
+\subsection{Objeto cuadrícula} \label{code:grid}
 
-\begin{table}[!htbp]
-	\begin{center}
-		\begin{tabular}{| l | c | r |}
-			\hline
-			Clase & Aula & Cuatrimestre \\ 
-			\hline
-			\hline
-			Cálculo & MD203 & Q1 \\
-			\hline
-			Análisis Matemático I & BE011 & Q2 \\
-			\hline
-			Álgebra & BE012 & Q1 \\ 
-			\hline
-		\end{tabular}
-		\caption{Ejemplo de tabla}
-		\label{tab:fruta}
-	\end{center}
-\end{table} 
+\begin{lstlisting}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Grid
+{
+	private int width;
+	private int height;
+	private float cellSize;
+	private int[,] gridArray;
+	
+	public Grid(int width, int height, float cellSize)
+	{
+		this.width = width;
+		this.height = height;
+		this.cellSize = cellSize;
+		
+		gridArray = new int[width, height];
+		
+		for (int x = 0; x < gridArray.GetLength(0); x++)
+		{
+			for (int y = 0; y < gridArray.GetLength(1); y++)
+			{
+				Utils.CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y), 20, Color.white, TextAnchor.MiddleCenter, TextAlignment.Center, 0);
+			}
+		}    
+	}
+	
+	public Vector3 GetWorldPosition(int x, int y)
+	{
+		return new Vector3(x, y) * cellSize;
+	}
+}
+\end{lstlisting}
+
+\subsection{Clase ''Utils''} \label{code:gridUtils}
+
+\begin{lstlisting}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public static class Utils
+{
+	public static TextMesh CreateWorldText(string text, Transform parent, Vector3 localPosition, int fontSize, Color color, TextAnchor textAnchor, TextAlignment textAlignment, int sortingOrder)
+	{
+		if (color == null)
+		{
+			color = Color.white;
+		}
+		
+		return CreateWorldText(parent, text, localPosition, fontSize, color, textAnchor, textAlignment, sortingOrder);
+	}
+	
+	public static TextMesh CreateWorldText(Transform parent, string text, Vector3 localPosition, int fontSize, Color color, TextAnchor textAnchor, TextAlignment textAlignment, int sortingOrder)
+	{
+		GameObject gameObject = new GameObject("WorldText", typeof(TextMesh));
+		Transform transform = gameObject.transform;
+		transform.SetParent(parent, false);
+		transform.localPosition = localPosition;
+		
+		TextMesh textMesh = gameObject.GetComponent<TextMesh>();
+		textMesh.anchor = textAnchor;
+		textMesh.alignment = textAlignment;
+		textMesh.text = text;
+		textMesh.fontSize = fontSize;
+		textMesh.color = color;
+		textMesh.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
+		
+		return textMesh;
+	} 
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}
+	using System.Collections;
+	using System.Collections.Generic;
+	using UnityEngine;
+	
+	public class GameManager : TemporalSingleton<GameManager>
+	{
+		[Header("Cannon")]
+		[SerializeField] private Transform cannonTransform;
+		[SerializeField] private float cannonForce;
+		
+		[SerializeField] GameObject temporalCharacter;
+		
+		public void Start()
+		{
+			ResetTransform(temporalCharacter);
+		}
+		
+		public void ResetTransform(GameObject gameObject) {
+			gameObject.transform.position = cannonTransform.position;
+			gameObject.transform.rotation = cannonTransform.rotation;
+			
+			if (gameObject.GetComponent<Rigidbody2D>() != null) { 
+				ResetGravity(gameObject.GetComponent<Rigidbody2D>());
+				Launch(gameObject.GetComponent<Rigidbody2D>()); 
+			}
+		}
+		
+		private void ResetGravity(Rigidbody2D cmpRb) { cmpRb.velocity = Vector3.zero; }
+		
+		private void Launch(Rigidbody2D cmpRb) { cmpRb.AddForce(cannonTransform.up * cannonForce, ForceMode2D.Impulse); }
+	}
+\end{lstlisting}

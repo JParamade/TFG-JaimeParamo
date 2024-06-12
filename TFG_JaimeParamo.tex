@@ -204,6 +204,13 @@
 \addcontentsline{toc}{chapter}{\numberline{}Índice de tablas}
 \listoftables
 
+% RESUMEN
+\newpage{\pagestyle{empty}}
+\markboth{Resumen}{Resumen}
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{\numberline{}Resumen}
+\input{Secciones/resumen}
+
 % ABSTRACT
 \newpage{\pagestyle{empty}}
 \markboth{Abstract}{Abstract}
@@ -224,7 +231,7 @@
 \input{Secciones/introduccion}
 
 % CAPÍTULO 2 - ESTADO DE LA CUESTIÓN
-\chapter{Estado de la cuestión}  
+\chapter{Estado de la cuestión} \label{chapter:state} 
 %\addcontentsline{toc}{chapter}{\numberline{}Estado de la cuestión}    
 \input{Secciones/estado}
 
