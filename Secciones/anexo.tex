@@ -77,11 +77,164 @@ public static class Utils
 }
 \end{lstlisting}
 
+\newpage
+
+\section{Herencia e interfaces} \label{code:herencia}
+
+\subsection{Sistema de Objetos Interactuables}
+
+\subsubsection{Interfaces} 
 
 \begin{lstlisting}
 	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
+	
+	public interface IInteractable { }
+	
+	public interface IRotational : IInteractable {
+		public void Rotate();
+	}
+	
+	public interface ITranslational : IInteractable {
+		public void Translate();
+	}
+\end{lstlisting}
+
+\subsubsection{Objeto interactuable}
+
+\begin{lstlisting}
+	using System.Collections;
+	using System.Collections.Generic;
+	using Unity.VisualScripting;
+	using UnityEngine;
+	
+	public class InteractableObject : MonoBehaviour, IInteractable
+	{
+		public bool followMovement = false;
+	}
+	
+\end{lstlisting}
+
+\subsubsection{Plataforma traslacional}
+
+\begin{lstlisting}
+	public class TraslationalPlatform : Platform, ITranslational
+	{
+		[SerializeField] int axis;
+		
+		private void Update()
+		{
+			if (followMovement) {
+				if (axis == 0) { TranslateX(); } 
+				else if (axis == 1) { TranslateY(); } 
+				else if (axis == 2) { Translate(); } 
+			}
+		}
+		
+		public void Translate() {
+			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			transform.position = new Vector2(mousePosition.x, mousePosition.y);
+		}
+		public void TranslateX() { 
+			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			transform.position = new Vector2(mousePosition.x, transform.position.y);
+		}
+		public void TranslateY() {
+			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			transform.position = new Vector2(transform.position.x, mousePosition.y);
+		}
+	}
+\end{lstlisting}
+
+\subsubsection{Plataforma rotacional}
+
+\begin{lstlisting}
+	public class RotationalPlatform : Platform, IRotational
+	{
+		private void Update()
+		{
+			if (followMovement) { Rotate(); }
+		}
+		
+		public void Rotate() {
+			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Vector2 direction = mousePosition - transform.position;
+			float angle = Vector2.SignedAngle(Vector2.up, direction);
+			transform.eulerAngles = new Vector3(0, 0, angle);
+		}
+	}
+	
+\end{lstlisting}
+
+\subsubsection{Cañón}
+
+\begin{lstlisting}
+	public class Cannon : InteractableObject, IRotational
+	{
+		private void Update()
+		{
+			if (followMovement) { Rotate(); }
+		}
+		
+		public void Rotate() {
+			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Vector2 direction = mousePosition - transform.position;
+			float angle = Vector2.SignedAngle(Vector2.up, direction);
+			transform.eulerAngles = new Vector3(0, 0, angle);
+		}
+	}
+\end{lstlisting}
+
+\section{Patrones de diseño: Singleton} \label{code:singleton}
+
+\subsection{Clase genérica} \label{code:generic}
+
+\begin{lstlisting}
+using UnityEngine;
+using System.Collections;
+
+public class TemporalSingleton<T> : MonoBehaviour where T : Component
+{
+	public static T Instance
+	{
+		get
+		{
+			if (_instance == null)
+			{
+				_instance = FindObjectOfType<T>();
+				if (_instance == null)
+				{
+					GameObject obj = new GameObject();
+					_instance = obj.AddComponent<T>();
+				}
+			}
+			return _instance;
+		}
+	}
+	
+	public virtual void Awake()
+	{
+		if (_instance == null) { _instance = this as T;	}
+		else if (_instance != this)	{ 
+			Debug.LogWarning("Destroying duplicate TemporalSingleton"); 
+			Destroy(gameObject);
+		}
+	}
+	
+	private static T _instance;
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection{Implementación} \label{code:implementation}
+
+\begin{lstlisting}
+	using System.Collections;
+	using System.Collections.Generic;
+	using UnityEngine;
+	using static UnityEditor.Profiling.RawFrameDataView;
 	
 	public class GameManager : TemporalSingleton<GameManager>
 	{
@@ -91,12 +244,19 @@ public static class Utils
 		
 		[SerializeField] GameObject temporalCharacter;
 		
+		private FMOD.Studio.EventInstance instance;
+		
 		public void Start()
 		{
 			ResetTransform(temporalCharacter);
+			
+			instance = FMODUnity.RuntimeManager.CreateInstance("eventName");
+			instance.start();
 		}
 		
 		public void ResetTransform(GameObject gameObject) {
+			instance.setParameterByName("RitmoVegetalGameStates", Random.Range(0, 3));
+			
 			gameObject.transform.position = cannonTransform.position;
 			gameObject.transform.rotation = cannonTransform.rotation;
 			
@@ -108,6 +268,10 @@ public static class Utils
 		
 		private void ResetGravity(Rigidbody2D cmpRb) { cmpRb.velocity = Vector3.zero; }
 		
-		private void Launch(Rigidbody2D cmpRb) { cmpRb.AddForce(cannonTransform.up * cannonForce, ForceMode2D.Impulse); }
+		private void Launch(Rigidbody2D cmpRb) { 
+			cmpRb.AddForce(cannonTransform.up * cannonForce, ForceMode2D.Impulse);
+			FMODUnity.RuntimeManager.PlayOneShot("eventName");
+		}
 	}
 \end{lstlisting}
+

@@ -496,6 +496,54 @@ En esta segunda iteración, las plataformas estarían ya posicionadas en el ento
 
 Esta última iteración evolucionó en la versión final de la aplicación. A continuación, se explicarán en detalle los aspectos de diseño y desarrollo, tanto mecánicos como musicales, de esta versión final. Todo lo redactado hasta este punto conduce a los siguientes apartados. Estos son el resultado de la combinación del trabajo del autor y su tutora, culminando en una versión final de la aplicación llamada \textit{Ritmo vegetal}.
 
+\subsection{Producción: Introducción al diseño}
+
+Desde la última iteración, las modificaciones realizadas para llegar a esta versión han sido mínimas. Sin embargo, se han tomado ciertas decisiones de diseño, que justificamos por los objetivos de este trabajo y explicaremos en la siguiente sección.
+
+A nivel de diseño, el personaje se lanza desde un cañón ubicado en la esquina inferior izquierda del entorno de juego. Este cañón puede pivotar sobre sí mismo para ofrecer lanzamientos hacia distintas direcciones. El escenario ya cuenta con plataformas colocadas con las que el paciente puede interactuar para obtener diferentes resultados musicales. Estas plataformas tienen limitaciones de movimiento: algunas pueden solo rotar, mientras que otras pueden desplazarse de manera horizontal, vertical, o en ambas direcciones. +
+
+El puzle sonoro se consigue mediante la interacción del paciente con todos los elementos que se le presentan, desde los distintos movimientos de las plataformas como la rotación del cañón. El diseño del rompecabezas, a nivel conceptual, se basa en los principios del diseño tradicional de puzles en videojuegos, e incluso en la vida real. La satisfacción de un puzle radica en pensar cómo resolverlo. Una vez encontrada la solución, el puzle ya no ofrece la misma satisfacción. El objetivo de este puzle es motivar al jugador a continuar jugando, simplemente por la satisfacción de encontrar una solución que le agrade. Por eso, este puzle no tiene una solución concreta. En cambio, se guía por el gusto subjetivo del jugador, quien deberá encontrar una combinación de posiciones de los elementos del juego que cree una combinación melódica y rítmica que le satisfaga personalmente.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Figuras/Desarrollo/RitmoVegetalGame.png}
+	\caption{Captura de la actual jugabilidad de la aplicación de Ritmo Vegetal.}
+	\label{fig:RitmoVegetal}
+	\vspace{-25pt}
+\end{figure}
+
+\begin{center}
+	\textbf{Fuente:} Elaboración propia.
+\end{center}
+
+Las plataformas producen diferentes sonidos, creando una secuencia melódica dependiendo de cómo el paciente interactúe con la aplicación. Sin embargo, algunos sonidos obligan a la secuencia a terminar, por lo que es más probable que el paciente lo coloque al final de esta.
+
 \subsection{Producción: Decisiones de diseño}
 
-La gracia del puzle está en resolverlo, motivación intrínseca.
+Todas las decisiones de diseño se fundamentan en las investigaciones realizadas dentro del marco teórico de este trabajo. Comenzando con el tipo de musicoterapia en el que se basa la aplicación. La musicoterapia activa es la modalidad sobre la que está construida la aplicación, reforzando el objetivo principal de convertir al paciente en un creador. La musicoterapia receptiva o pasiva no es adecuada para esta aplicación, ya que no se alinea con sus objetivos. La musicoterapia activa permite que el terapeuta guíe al paciente durante el proceso de creación. Este proceso de creación se relaciona con la composición, en la que el paciente, con la ayuda del terapeuta, crea una pieza musical (la secuencia musical del juego) en una partitura (el entorno del juego).
+
+En cuanto a la relación con los elementos de diseño de videojuegos serios, el componente esencial es la simplicidad de las mecánicas de juego. Esta simplicidad permite a los pacientes comprender rápidamente su contexto. Con un enfoque terapéutico, la aplicación se centra en el usuario y sus necesidades, permitiendo que el terapeuta se adapte a las necesidades específicas del paciente. Dependiendo de la dificultad deseada para la terapia, los niveles pueden personalizarse. La interactividad de la aplicación proporciona retroalimentación inmediata, lo que permite al paciente ver los resultados instantáneamente y actuar en consecuencia.
+
+\subsection{Producción: Desarrollo}
+
+\subsubsection{Programación}
+
+Los sistemas de programación de la aplicación se basan en los principios SOLID (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation y Dependency Inversion), además se ha programado bajo el paradigma de la programación orientada a objetos, que es el que se utiliza en el desarrollo de videojuegos moderno. El sistema de objetos interactuables usa herencia e interfaces para otorgar funcionalidades específicas a cada tipo de objeto. Esto permite que añadir nuevos tipos de objeto en el futuro sea una tarea sencilla, sin necesidad de una gran revisión del código anterior. Se puede observar en la \autoref{fig:Programming} cómo se ha dispuesto la herencia del sistema y en el apartado \ref{code:herencia} del anexo se puede revisar el código en detalle. Cada tipo de plataforma implementa una interfaz específica que describe cómo se ejecuta el movimiento. Esto permite caracterizar los diferentes elementos del juego basándose en el tipo de movimiento que deben realizar.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{Figuras/Desarrollo/Herencia.png}
+	\caption{Diagrama de flujo que muestra el sistema de herencia de los objetos interactuables.}
+	\label{fig:Programming}
+	\vspace{-20pt}
+\end{figure}
+
+\begin{center}
+	\textbf{Fuente:} Elaboración propia.
+\end{center}
+
+Además, se ha utilizado el patrón de diseño Singleton, que permite que una única instancia de una clase se comunique fácilmente con el resto de las clases en la estructura. Se creó un Singleton genérico que se pudiera aplicar a cualquier tipo de clase (sección \ref{code:generic} del anexo) y luego se implementó en el gestor del juego (sección \ref{code:implementation} del anexo). Los elementos del juego que dependen directamente del bucle principal, se comunican con el gestor del juego sin necesidad de referencias implícitas a esa clase en específico.
+
+\subsubsection{Audio}
+
+El audio creado en FMOD se ha organizado en bancos y grupos según su categoría. Las dos categorías que derivan directamente del máster son los efectos de sonido y la música. Esta organización nos permite gestionar los volúmenes individuales de cada grupo para lograr un estado de audio equilibrado, que permite la normalización conjunta. Los elementos simples como las colisiones de las plataformas, se han sonorizado con golpes instrumentales básicos. Sin embargo, la música se ha construido en 3 capas que van intercalándose aleatoriamente durante el transcurso del juego y que hacen que la experiencia se sienta un poco más viva.
